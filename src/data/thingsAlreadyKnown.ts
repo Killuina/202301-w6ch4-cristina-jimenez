@@ -7,15 +7,19 @@ const thingsAlreadyKnown: ThingsAlreadyKnown = [
   },
   {
     id: 2,
-    thing: "un 5% de Back-End",
+    thing: "Poner SIEMPRE favicon",
   },
   {
     id: 3,
-    thing: "La S de Solid",
+    thing: "Cuando renderiza un componente en react",
   },
   {
     id: 4,
     thing: "Qué es una función pura",
+  },
+  {
+    id: 5,
+    thing: "La S de Solid",
   },
 ];
 
