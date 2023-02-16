@@ -6,6 +6,7 @@ module.exports = {
   extends: ["xo", "prettier"],
   overrides: [
     {
+      rules: { "new-cap": "off" },
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
     },
@@ -14,5 +15,4 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {},
 };
