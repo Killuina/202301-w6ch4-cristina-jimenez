@@ -1,20 +1,19 @@
 import "./loadEnviroment.js";
 import express from "express";
-import { Router } from "express";
 import morgan from "morgan";
-import debug from "debug";
-import thingsAlreadyKnown from "./data/thingsAlreadyKnown.js";
-
-const app = express();
+import createDebug from "debug";
+import { thingsRouter } from "./router/thingsRouter.js";
 
 const port = process.env.PORT ?? 4321;
 
-const thingsAlreadyKnownRouter = Router();
+const app = express();
 
-app.use("/things", thingsAlreadyKnownRouter);
+app.use(express.json());
+
+export const debug = createDebug("things:root");
+
+app.use(morgan("dev"));
+
+app.use("/", thingsRouter);
 
 app.listen(port);
-
-app.get("/", (req, res) => {
-  res.json(thingsAlreadyKnown);
-});
