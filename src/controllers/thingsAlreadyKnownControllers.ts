@@ -9,16 +9,18 @@ export const getThingsAlreadyKnown = (req: Request, res: Response) => {
 
 export const getThingAlreadyKnown = (req: Request, res: Response) => {
   debug("Sent response with thingAlreadyKnown data");
-  const { thingId } = req.params;
+  const { idThing } = req.params;
 
   const thingAlreadyKnown = thingsAlreadyKnown.find(
-    (thingAlreadyKnown) => thingAlreadyKnown.id === +thingId
+    ({ id }) => id === +idThing
   );
 
   if (!thingAlreadyKnown) {
-    res.status(404).json({ error: "Thing not found :(" });
+    debug("Sent error response");
+    res.status(404).json({ error: "I know everything but that..." });
     return;
   }
 
+  debug("Sent response with thing data");
   res.status(200).json({ thingAlreadyKnown });
 };
