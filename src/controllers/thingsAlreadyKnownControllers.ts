@@ -24,3 +24,26 @@ export const getThingAlreadyKnown = (req: Request, res: Response) => {
   debug("Sent response with thing data");
   res.status(200).json({ thingAlreadyKnown });
 };
+
+export const deleteThingAlreadyKnown = (req: Request, res: Response) => {
+  const { idThing } = req.params;
+  const deletedThingAlreadyKnown = thingsAlreadyKnown.find(
+    ({ id }) => id === +idThing
+  );
+
+  if (!deletedThingAlreadyKnown) {
+    debug("Sent error response");
+    res
+      .status(404)
+      .json({ error: "You can't delete something that doesn't exist :(" });
+    return;
+  }
+
+  const newThingsAlreadyKnown = thingsAlreadyKnown.splice(
+    deletedThingAlreadyKnown.id - 1,
+    1,
+    deletedThingAlreadyKnown
+  );
+
+  res.json({ newThingsAlreadyKnown });
+};
