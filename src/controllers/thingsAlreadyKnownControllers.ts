@@ -41,8 +41,7 @@ export const deleteThingAlreadyKnown = (req: Request, res: Response) => {
 
   const newThingsAlreadyKnown = thingsAlreadyKnown.splice(
     deletedThingAlreadyKnown.id - 1,
-    1,
-    deletedThingAlreadyKnown
+    1
   );
 
   res.json({ newThingsAlreadyKnown });
