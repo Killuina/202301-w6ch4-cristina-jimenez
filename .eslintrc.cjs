@@ -12,6 +12,7 @@ module.exports = {
           "error",
           "interface",
         ],
+        "no-implicit-coercion": "off",
       },
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
